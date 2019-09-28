@@ -10,13 +10,13 @@ class Transfer
   end
   
   def valid?
-    @sender.valid? == true && @receiver.valid? == true && @receiver.balance >= @amount
+    @sender.valid? == true && @receiver.valid? == true && @sender.balance >= @amount
   end
   
   def execute_transaction
   if self.valid?
-    @sender.deposit(@amount)
-    @receiver.withdraw(@amount)
+    @sender.withdraw(@amount)
+    @receiver.deposit(@amount)
   end
   end
 
