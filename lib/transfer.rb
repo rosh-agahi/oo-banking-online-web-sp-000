@@ -16,6 +16,7 @@ class Transfer
   def execute_transaction
   if @sender.balance < @amount
     return "Transaction rejected.Please check your account balance."
+    @status = "complete"
     else
       self.valid? && @status != "complete"
         @sender.withdraw(@amount)
