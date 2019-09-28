@@ -10,7 +10,7 @@ class Transfer
   end
   
   def valid?
-    @sender.valid? == true && @receiver.valid? == true && @sender.balance >= @amount
+    @sender.valid? && @receiver.valid? && @sender.balance >= @amount
   end
   
   def execute_transaction
@@ -25,7 +25,7 @@ class Transfer
 
   def reject
     @status = "rejected"
-    return "Transaction rejected.Please check your account balance."
+    return "Transaction rejected. Please check your account balance."
   end
     
   def reverse_transfer
